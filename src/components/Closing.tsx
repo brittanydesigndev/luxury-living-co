@@ -61,6 +61,10 @@ const docs = [
     blurb: "The approach, design decisions, the learning path, the rollout plan, measurement and next steps in one document.",
   },
   {
+    ...DOCS.jobAid,
+    blurb: "The one-page job aid associates keep on their phone: each step of the model, what to say, discovery questions and the follow-up template.",
+  },
+  {
     ...DOCS.survey,
     blurb: "The needs-analysis survey I'd send associates before building, with notes on how each answer is used.",
   },
@@ -73,7 +77,7 @@ export function Resources() {
         <p className="eyebrow">Take it with you</p>
         <h2 className="section-title mt-2">Documents</h2>
         <span className="gold-rule mt-5" />
-        <ul className="mt-10 grid gap-5 md:grid-cols-2">
+        <ul className="mt-10 grid gap-5 md:grid-cols-3">
           {docs.map((d) => (
             <li key={d.href}>
               <Card className="flex h-full flex-col">

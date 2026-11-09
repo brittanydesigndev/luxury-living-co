@@ -5,6 +5,7 @@ export const LOVABLE_APP_URL = "https://luxury-living-co.lovable.app/";
 // PDFs live in public/docs and download from the live site.
 export const DOCS = {
   brief: { href: "docs/The_Art_of_the_Tour_Design_Brief.pdf", title: "Design brief", pages: "6 pages" },
+  jobAid: { href: "docs/Tour_Key_Card_Job_Aid.pdf", title: "Tour Key Card job aid", pages: "1 page" },
   survey: { href: "docs/Tour_Pulse_Associate_Survey.pdf", title: "Tour Pulse associate survey", pages: "2 pages" },
 };
 

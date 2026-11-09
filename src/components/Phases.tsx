@@ -282,6 +282,11 @@ export function ImplementPhase() {
                 <s.icon aria-hidden className="h-5 w-5 text-accent" />
                 <p className="mt-3 font-display text-2xl leading-tight">{s.title}</p>
                 <p className="mt-2 text-[15px] leading-relaxed text-muted">{s.body}</p>
+                {s.title === "A job aid" && (
+                  <a href={DOCS.jobAid.href} target="_blank" rel="noreferrer" className="link mt-3 inline-block text-sm">
+                    See the Tour Key Card (PDF)
+                  </a>
+                )}
               </Card>
             </li>
           ))}
