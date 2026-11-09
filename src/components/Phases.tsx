@@ -1,7 +1,7 @@
 // Design, Develop, Implement and Evaluate, written from Brittany's own notes.
 // Earlier, longer drafts are in Design.tsx, Develop.tsx and ImplementEvaluate.tsx.
 
-import { BookOpen, ClipboardCheck, Clock, MessagesSquare, Smartphone, TrendingUp } from "lucide-react";
+import { BookOpen, ClipboardCheck, Clock, MessagesSquare, Smartphone, TrendingUp, Users } from "lucide-react";
 import { DOCS } from "@/config";
 import { Card, LaunchButton, Phase, SubHead, Thinking } from "./ui";
 import { SalesModel } from "./SalesModel";
@@ -63,6 +63,30 @@ export function DesignPhase() {
   );
 }
 
+const path = [
+  {
+    stage: "Get started",
+    count: "1 item",
+    body: "A welcome video and a five-question pre-check that shows each associate where they're strong and where to focus.",
+  },
+  {
+    stage: "Learn the model",
+    count: "5 modules",
+    body: "One short module for each step of the coaching-to-decision model, plus Just ask.",
+  },
+  {
+    stage: "Put it together",
+    count: "2 items",
+    body: "A Fair Housing check, then the Tour Simulator, where associates run a full tour from hello to next steps.",
+  },
+];
+
+const features = [
+  { icon: Smartphone, title: "Mobile first", body: "Built for a phone, in short pieces associates can finish between tours." },
+  { icon: TrendingUp, title: "Progress tracking", body: "Associates see how far they are through all eight items, and pick up where they left off." },
+  { icon: Users, title: "Role views", body: "A switch between the associate view and a leader view, so managers can support the same path." },
+];
+
 export function DevelopPhase() {
   return (
     <Phase
@@ -73,15 +97,45 @@ export function DevelopPhase() {
       summary={
         <p>
           I built the learning experience in Lovable as a mobile-first web app, using the Luxury Living Co. design
-          system so it feels like part of the brand.
+          system so it feels like part of the brand. It's organized as one guided path in three stages.
         </p>
       }
     >
-      <Card className="flex flex-wrap items-center justify-between gap-6 border-navy bg-navy text-parchment">
+      <SubHead>The learning path</SubHead>
+      <ol className="mt-6 grid gap-4 md:grid-cols-3">
+        {path.map((p, i) => (
+          <li key={p.stage} className="relative min-w-0">
+            <Card className="h-full">
+              <div className="flex items-center justify-between">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-navy font-display text-lg text-gold dark:bg-gold dark:text-navy">
+                  {i + 1}
+                </span>
+                <span className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">{p.count}</span>
+              </div>
+              <p className="mt-4 font-display text-2xl leading-tight">{p.stage}</p>
+              <p className="mt-2 text-[15px] leading-relaxed text-muted">{p.body}</p>
+            </Card>
+          </li>
+        ))}
+      </ol>
+
+      <ul className="mt-6 grid gap-4 md:grid-cols-3">
+        {features.map((f) => (
+          <li key={f.title} className="flex gap-3 rounded-lg border border-line p-5">
+            <f.icon aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+            <div className="min-w-0">
+              <p className="font-medium">{f.title}</p>
+              <p className="mt-1 text-sm leading-relaxed text-muted">{f.body}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+
+      <Card className="mt-10 flex flex-wrap items-center justify-between gap-6 border-navy bg-navy text-parchment">
         <div className="min-w-0">
           <p className="eyebrow text-gold">The learning experience</p>
           <p className="mt-2 max-w-xl font-display text-2xl leading-snug">
-            Walk through the model, practice a tour, and keep the job aid for later.
+            Start with the pre-check, learn the model one step at a time, then run a full tour in the simulator.
           </p>
         </div>
         <LaunchButton />
@@ -162,7 +216,7 @@ function Roadmap() {
 export function ImplementPhase() {
   const stakeholders: string[][] = [
     ["Leasing and regional leadership", "Sponsor: approves scope, removes barriers, makes the scale decision", "A monthly one-page KPI update"],
-    ["Community managers", "Coach and observe tours; first to learn the model", "A short briefing, the Coach checklist, time on the schedule"],
+    ["Community managers", "Coach and observe tours; first to learn the model", "A short briefing, an observation checklist, time on the schedule"],
     ["Leasing associates", "Learners", "Short mobile lessons and real practice"],
     ["Compliance", "Reviews every scenario and the discovery questions for Fair Housing", "Content two weeks before launch"],
     ["Marketing", "Brand voice and current amenity details", "A review of the job aid and examples"],
@@ -252,11 +306,11 @@ export function EvaluatePhase() {
     ],
     [
       "2 · Learning",
-      "Practice decisions in each module, a pre-check and post-check with the same five questions, and the Maya scenario debrief scored by each step of the sales model.",
+      "The pre-check, practice in each module, and the Tour Simulator, where associates run a full tour and see how each step of the sales model landed.",
     ],
     [
       "3 · Behavior",
-      "Community managers observe a real tour with the Coach checklist at 30, 60 and 90 days. The CRM tracks how many tours get a personal follow-up within 24 hours.",
+      "Community managers observe a real tour with an observation checklist at 30, 60 and 90 days. The CRM tracks how many tours get a personal follow-up within 24 hours.",
     ],
     [
       "4 · Results",
@@ -266,7 +320,7 @@ export function EvaluatePhase() {
   const kpis: (string | JSX.Element)[][] = [
     ["Completion", "Leading", "90% of associates within 30 days", "App data", "Program manager", "Weekly"],
     ["Confidence by step (pre/post survey)", "Leading", "+1 point on a 5-point scale", "Tour Pulse survey", "Program manager", "Before and at 90 days"],
-    ["Observed behavior on real tours", "Leading", "Every associate observed by day 30; average “Getting there” or better", "Coach checklist", "Community managers", "Monthly"],
+    ["Observed behavior on real tours", "Leading", "Every associate observed by day 30; average “Getting there” or better", "Observation checklist", "Community managers", "Monthly"],
     ["Follow-up within 24 hours", "Leading", "80% of tours", "CRM", "Operations", "Weekly"],
     ["Tour-to-lease conversion", "Lagging", "Pilot beats comparison communities", "CRM", "Regional leadership", "Monthly, 90-day readout"],
   ];

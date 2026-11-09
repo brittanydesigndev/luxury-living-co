@@ -44,7 +44,7 @@ export function Hero() {
               Skip to the learning experience
             </a>
             <a href="#documents" className="text-sm text-parchment/85 underline decoration-gold underline-offset-4 hover:text-parchment">
-              Download the survey
+              Download the PDFs
             </a>
           </div>
           <p className="mt-10 text-sm text-parchment/60">{AUTHOR.name}</p>

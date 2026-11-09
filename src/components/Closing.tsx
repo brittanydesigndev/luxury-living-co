@@ -55,8 +55,11 @@ export function NextSteps() {
   );
 }
 
-// The design brief comes back here once it's rewritten at the end of the process.
 const docs = [
+  {
+    ...DOCS.brief,
+    blurb: "The approach, design decisions, the learning path, the rollout plan, measurement and next steps in one document.",
+  },
   {
     ...DOCS.survey,
     blurb: "The needs-analysis survey I'd send associates before building, with notes on how each answer is used.",
@@ -70,7 +73,7 @@ export function Resources() {
         <p className="eyebrow">Take it with you</p>
         <h2 className="section-title mt-2">Documents</h2>
         <span className="gold-rule mt-5" />
-        <ul className="mt-10 grid max-w-2xl gap-5">
+        <ul className="mt-10 grid gap-5 md:grid-cols-2">
           {docs.map((d) => (
             <li key={d.href}>
               <Card className="flex h-full flex-col">

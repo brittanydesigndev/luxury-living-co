@@ -1,6 +1,6 @@
 // Links used across the walkthrough. Paste your published Lovable URL here
 // and every "Launch the learning experience" button updates.
-export const LOVABLE_APP_URL = "https://lovable.dev/projects/REPLACE-WITH-YOUR-APP";
+export const LOVABLE_APP_URL = "https://luxury-living-co.lovable.app/";
 
 // PDFs live in public/docs and download from the live site.
 export const DOCS = {
