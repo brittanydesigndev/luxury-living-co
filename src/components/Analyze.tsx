@@ -16,7 +16,7 @@ type Diagnosis = "Skill" | "Knowledge + skill" | "Skill + system";
 const art: Record<string, { src: string; alt: string; cover?: boolean }> = {
   connection: {
     src: gapConnection,
-    alt: "A leasing associate chatting over coffee with a prospect in the leasing office lobby",
+    alt: "A leasing associate shaking hands with a prospect in the leasing office lobby",
     cover: true,
   },
   personalize: {
