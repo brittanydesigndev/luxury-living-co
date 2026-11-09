@@ -83,7 +83,7 @@ export function Analyze() {
       id="analyze"
       letter="A"
       name="Analyze"
-      question="Is this a knowledge problem, a skill problem or a system problem?"
+      question="Is this a knowledge, skill, or system gap?"
       summary={
         <p>
           Leadership described four symptoms. Before choosing a format, I diagnosed each one, because the answer
