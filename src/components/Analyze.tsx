@@ -114,10 +114,10 @@ export function Analyze() {
 
       <Research />
 
-      <div className="mt-6 grid gap-6 lg:grid-cols-[1.4fr_1fr]">
+      <div className="mt-6">
         <Card>
           <SubHead>Who I'm designing for</SubHead>
-          <dl className="mt-5 grid gap-4 sm:grid-cols-2">
+          <dl className="mt-5 grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-4">
             {learner.map(([k, v]) => (
               <div key={k}>
                 <dt className="eyebrow">{k}</dt>
@@ -125,14 +125,6 @@ export function Analyze() {
               </div>
             ))}
           </dl>
-        </Card>
-        <Card className="border-navy bg-navy text-parchment">
-          <p className="eyebrow text-gold">The lens I brought</p>
-          <p className="mt-2 text-[15px] leading-relaxed text-parchment/90">
-            I roll out new processes across 200+ multifamily communities. I've seen that a change sticks when the
-            community manager owns it, and that a CRM task beats a reminder email every time. Both shaped this
-            design.
-          </p>
         </Card>
       </div>
 
