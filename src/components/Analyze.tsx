@@ -3,17 +3,24 @@ import associate from "@/assets/leasing-associate.webp";
 import gapKnowledge from "@/assets/gap-knowledge.webp";
 import gapSkill from "@/assets/gap-skill.webp";
 import gapSystem from "@/assets/gap-system.webp";
+import gapPersonalize from "@/assets/gap-personalize.webp";
 import { Card, Phase, StageChip, SubHead, Thinking, type StageId } from "./ui";
 import { Research } from "./Research";
 import { Survey } from "./Survey";
 
 type Diagnosis = "Skill" | "Knowledge + skill" | "Skill + system";
 
-// The illustration for each diagnosis shows its leading gap.
-const art: Record<Diagnosis, { src: string; alt: string }> = {
-  Skill: { src: gapSkill, alt: "A leasing associate guiding a prospect through a bright apartment" },
-  "Knowledge + skill": { src: gapKnowledge, alt: "A leasing associate taking notes at a laptop next to a stack of books" },
-  "Skill + system": { src: gapSystem, alt: "A leasing associate checking off steps on a tablet next to a calendar and keys" },
+// One illustration per observation. "cover" fills the frame (full scenes);
+// the others are vignettes on a cream ground.
+const art: Record<string, { src: string; alt: string; cover?: boolean }> = {
+  connection: { src: gapSkill, alt: "A leasing associate guiding a prospect through a bright apartment" },
+  personalize: {
+    src: gapPersonalize,
+    alt: "A leasing associate showing the fitness center to a prospect carrying a gym bag and water bottle",
+    cover: true,
+  },
+  amenities: { src: gapKnowledge, alt: "A leasing associate taking notes at a laptop next to a stack of books" },
+  "next-steps": { src: gapSystem, alt: "A leasing associate checking off steps on a tablet next to a calendar and keys" },
 };
 
 const observations: {
@@ -108,7 +115,15 @@ export function Analyze() {
         </ul>
         <div id="obs-panel" role="tabpanel" aria-labelledby={`obs-${open}`} className="min-w-0 overflow-hidden rounded-lg border border-line bg-raised">
           <div className="flex justify-center" style={{ backgroundColor: "#faecdb" }}>
-            <img src={art[current.diagnosis].src} alt={art[current.diagnosis].alt} className="h-48 w-auto max-w-full object-contain md:h-56" />
+            <img
+              src={art[current.id].src}
+              alt={art[current.id].alt}
+              className={
+                art[current.id].cover
+                  ? "h-48 w-full object-cover object-[50%_35%] md:h-56"
+                  : "h-48 w-auto max-w-full object-contain md:h-56"
+              }
+            />
           </div>
           <div className="p-6 md:p-8">
           <p className="eyebrow">My diagnosis</p>
