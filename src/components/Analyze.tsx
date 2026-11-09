@@ -118,11 +118,7 @@ export function Analyze() {
             <img
               src={art[current.id].src}
               alt={art[current.id].alt}
-              className={
-                art[current.id].cover
-                  ? "h-48 w-full object-cover object-[50%_35%] md:h-56"
-                  : "h-48 w-auto max-w-full object-contain md:h-56"
-              }
+              className={`w-auto max-w-full object-contain ${art[current.id].cover ? "my-4 h-40 rounded-md md:h-48" : "h-48 md:h-56"}`}
             />
           </div>
           <div className="p-6 md:p-8">
