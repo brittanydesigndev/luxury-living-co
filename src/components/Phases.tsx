@@ -3,7 +3,7 @@
 
 import { BookOpen, ClipboardCheck, Clock, MessagesSquare, Smartphone, TrendingUp } from "lucide-react";
 import { DOCS } from "@/config";
-import { Card, LaunchButton, Phase, Thinking } from "./ui";
+import { Card, LaunchButton, Phase, SubHead, Thinking } from "./ui";
 import { SalesModel } from "./SalesModel";
 
 export function DesignPhase() {
@@ -90,7 +90,85 @@ export function DevelopPhase() {
   );
 }
 
+function DataTable({ head, rows, minWidth = 640 }: { head: string[]; rows: (string | JSX.Element)[][]; minWidth?: number }) {
+  return (
+    <div className="overflow-x-auto rounded-lg border border-line bg-raised">
+      <table className="w-full text-left text-[15px]" style={{ minWidth }}>
+        <thead>
+          <tr className="border-b border-gold">
+            {head.map((h) => (
+              <th key={h} scope="col" className="eyebrow p-4 align-bottom">
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r, i) => (
+            <tr key={i} className="border-b border-line last:border-0">
+              {r.map((c, j) =>
+                j === 0 ? (
+                  <th key={j} scope="row" className="p-4 align-top font-medium">
+                    {c}
+                  </th>
+                ) : (
+                  <td key={j} className="p-4 align-top leading-relaxed text-muted">
+                    {c}
+                  </td>
+                ),
+              )}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+const roadmap = [
+  { phase: "Discover", when: "Weeks 1–3", work: "Tour Pulse survey, shadow tours, pull a CRM baseline", gate: "Gap and baseline confirmed" },
+  { phase: "Build", when: "Weeks 4–8", work: "Finish the app, compliance review, manager briefing", gate: "Compliance sign-off, pilot ready" },
+  { phase: "Pilot", when: "Weeks 9–21", work: "3 to 5 communities for 90 days, with comparison communities", gate: "KPIs reviewed: scale, adjust, or stop" },
+  { phase: "Scale", when: "Week 22 on", work: "Roll out in waves, add to new-hire onboarding", gate: "Quarterly KPI review" },
+];
+
+function Roadmap() {
+  return (
+    <ol className="grid gap-3 md:grid-cols-4 md:gap-0">
+      {roadmap.map((r, i) => (
+        <li key={r.phase} className="relative flex min-w-0 flex-col md:pr-6">
+          {/* phase bar */}
+          <div className="flex items-center gap-2">
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-navy font-display text-sm text-gold dark:bg-gold dark:text-navy">
+              {i + 1}
+            </span>
+            <span className="hidden h-0.5 flex-1 bg-gold/60 md:block" aria-hidden />
+          </div>
+          <p className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-accent">{r.when}</p>
+          <p className="mt-1 font-display text-2xl leading-tight">{r.phase}</p>
+          <p className="mt-2 flex-1 text-[15px] leading-relaxed text-muted">{r.work}</p>
+          <p className="mt-3 flex items-start gap-2 text-sm font-medium">
+            <span aria-hidden className="mt-1 h-2.5 w-2.5 shrink-0 rotate-45 border-2 border-gold bg-surface" />
+            <span>
+              <span className="text-accent">Gate:</span> {r.gate}
+            </span>
+          </p>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
 export function ImplementPhase() {
+  const stakeholders: string[][] = [
+    ["Leasing and regional leadership", "Sponsor: approves scope, removes barriers, makes the scale decision", "A monthly one-page KPI update"],
+    ["Community managers", "Coach and observe tours; first to learn the model", "A short briefing, the Coach checklist, time on the schedule"],
+    ["Leasing associates", "Learners", "Short mobile lessons and real practice"],
+    ["Compliance", "Reviews every scenario and the discovery questions for Fair Housing", "Content two weeks before launch"],
+    ["Marketing", "Brand voice and current amenity details", "A review of the job aid and examples"],
+    ["Operations and CRM team", "Builds the 24-hour follow-up task and conversion reporting", "Requirements by week 4"],
+    ["Program manager (me)", "Owns the plan, build, launch, measurement and reporting", "Access to learners, SMEs and data"],
+  ];
   const support = [
     {
       icon: BookOpen,
@@ -108,6 +186,13 @@ export function ImplementPhase() {
       body: "Short check-ins after the training to see what's sticking and where associates still feel unsure.",
     },
   ];
+  const risks: string[][] = [
+    ["Managers don't have time to observe", "A 10-minute checklist; observations added to manager goals; regional check-ins"],
+    ["Associates don't finish between tours", "5 to 15 minute modules, huddle time, completion tracked weekly"],
+    ["Discovery questions cross Fair Housing lines", "Compliance review before launch; “ask, don't assume” built into every scenario"],
+    ["The follow-up gap is a system problem", "An automatic CRM task after every logged tour"],
+    ["Seasonality skews the results", "Pilot vs. comparison communities against a 90-day baseline"],
+  ];
 
   return (
     <Phase
@@ -115,44 +200,57 @@ export function ImplementPhase() {
       letter="I"
       name="Implement"
       tone="sunken"
-      question="What happens beyond the experience?"
-      summary={<p>The training starts the change. These keep it going once associates are back on the floor.</p>}
+      question="How would I run this as a program?"
+      summary={
+        <p>
+          The training starts the change. A clear rollout, the right people involved, and support beyond the
+          experience keep it going once associates are back on the floor.
+        </p>
+      }
     >
-      <ul className="grid gap-4 md:grid-cols-3">
-        {support.map((s) => (
-          <li key={s.title}>
-            <Card className="h-full">
-              <s.icon aria-hidden className="h-5 w-5 text-accent" />
-              <p className="mt-3 font-display text-2xl leading-tight">{s.title}</p>
-              <p className="mt-2 text-[15px] leading-relaxed text-muted">{s.body}</p>
-            </Card>
-          </li>
-        ))}
-      </ul>
+      <SubHead>Rollout roadmap</SubHead>
+      <p className="mb-6 mt-2 max-w-prose text-[15px] text-muted">Each phase ends with a go/no-go gate, so we only scale what's working.</p>
+      <Roadmap />
+
+      <div className="mt-14">
+        <SubHead>Stakeholders</SubHead>
+        <div className="mt-5">
+          <DataTable head={["Who", "Role in the program", "What they need"]} rows={stakeholders} />
+        </div>
+      </div>
+
+      <div className="mt-14">
+        <SubHead>Beyond the experience</SubHead>
+        <ul className="mt-5 grid gap-4 md:grid-cols-3">
+          {support.map((s) => (
+            <li key={s.title}>
+              <Card className="h-full">
+                <s.icon aria-hidden className="h-5 w-5 text-accent" />
+                <p className="mt-3 font-display text-2xl leading-tight">{s.title}</p>
+                <p className="mt-2 text-[15px] leading-relaxed text-muted">{s.body}</p>
+              </Card>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="mt-14">
+        <SubHead>Risks and how I'd handle them</SubHead>
+        <div className="mt-5">
+          <DataTable head={["Risk", "Mitigation"]} rows={risks} minWidth={520} />
+        </div>
+      </div>
     </Phase>
   );
 }
 
 export function EvaluatePhase() {
-  const measures = [
-    {
-      when: "Before",
-      icon: ClipboardCheck,
-      title: "Pre survey",
-      body: "The Tour Pulse survey sets a baseline: how confident associates feel on each step of the model, and what gets in their way.",
-    },
-    {
-      when: "After",
-      icon: ClipboardCheck,
-      title: "Post survey",
-      body: "The same questions after the training show whether confidence grew, and on which steps.",
-    },
-    {
-      when: "Results",
-      icon: TrendingUp,
-      title: "Tour-to-lease conversion",
-      body: "The business result. Compare conversion before and after the training to see if better tours lead to more leases.",
-    },
+  const kpis: (string | JSX.Element)[][] = [
+    ["Completion", "Leading", "90% of associates within 30 days", "App data", "Program manager", "Weekly"],
+    ["Confidence by step (pre/post survey)", "Leading", "+1 point on a 5-point scale", "Tour Pulse survey", "Program manager", "Before and at 90 days"],
+    ["Observed behavior on real tours", "Leading", "Every associate observed by day 30; average “Getting there” or better", "Coach checklist", "Community managers", "Monthly"],
+    ["Follow-up within 24 hours", "Leading", "80% of tours", "CRM", "Operations", "Weekly"],
+    ["Tour-to-lease conversion", "Lagging", "Pilot beats comparison communities", "CRM", "Regional leadership", "Monthly, 90-day readout"],
   ];
 
   return (
@@ -161,24 +259,35 @@ export function EvaluatePhase() {
       letter="E"
       name="Evaluate"
       question="How would I know it worked?"
-      summary={<p>I'd measure how associates feel before and after, and whether more tours turn into leases.</p>}
+      summary={
+        <p>
+          I'd measure how associates feel before and after, what they do on real tours, and whether more tours turn
+          into leases. Targets are proposed and would be set once we have the baseline.
+        </p>
+      }
     >
-      <ol className="grid gap-4 md:grid-cols-3">
-        {measures.map((m, i) => (
-          <li key={m.title}>
-            <Card className="h-full">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">{m.when}</span>
-                <span className="font-display text-2xl text-gold" style={{ fontVariantNumeric: "tabular-nums" }}>
-                  {i + 1}
-                </span>
-              </div>
-              <p className="mt-3 font-display text-2xl leading-tight">{m.title}</p>
-              <p className="mt-2 text-[15px] leading-relaxed text-muted">{m.body}</p>
-            </Card>
-          </li>
-        ))}
-      </ol>
+      <SubHead>KPI scorecard</SubHead>
+      <div className="mt-5">
+        <DataTable head={["Measure", "Type", "Proposed target", "Source", "Owner", "Reported"]} rows={kpis} minWidth={820} />
+      </div>
+      <div className="mt-6 grid gap-4 md:grid-cols-2">
+        <Card>
+          <TrendingUp aria-hidden className="h-5 w-5 text-accent" />
+          <p className="mt-3 font-display text-xl leading-snug">Leading indicators move first</p>
+          <p className="mt-2 text-[15px] leading-relaxed text-muted">
+            Completion, confidence and follow-up show within weeks whether habits are changing, long before
+            conversion does.
+          </p>
+        </Card>
+        <Card>
+          <ClipboardCheck aria-hidden className="h-5 w-5 text-accent" />
+          <p className="mt-3 font-display text-xl leading-snug">A 90-day readout drives the decision</p>
+          <p className="mt-2 text-[15px] leading-relaxed text-muted">
+            At the end of the pilot, leadership gets one page: the scorecard, what we learned, and a recommendation to
+            scale, adjust, or stop.
+          </p>
+        </Card>
+      </div>
       <p className="mt-5 text-sm text-muted">
         The pre and post survey questions are in the{" "}
         <a href={DOCS.survey.href} target="_blank" rel="noreferrer" className="link">
