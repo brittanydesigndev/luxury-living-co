@@ -51,7 +51,7 @@ export const steps: Stage[] = [
 
 export const ask: Stage = {
   id: "ask",
-  name: "Ask at any time",
+  name: "Just ask at every step",
   short: "Ask",
   behavior:
     "Asks for the decision whenever the prospect shows a buying signal, not just at the end. If the answer is “not yet,” asks what it would take.",
