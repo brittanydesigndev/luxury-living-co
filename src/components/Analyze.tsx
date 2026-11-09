@@ -87,11 +87,11 @@ export function Analyze() {
       id="analyze"
       letter="A"
       name="Analyze"
-      question="Who are we designing for, and what's really getting in the way?"
+      question="Who are we designing for, and what's getting in the way?"
       summary={
         <p>
           I started with the learner, then looked at each of leadership's four observations and asked whether it was
-          a knowledge, skill, or system gap. The answer decides everything that follows.
+          a knowledge, skill, or system gap.
         </p>
       }
     >
@@ -124,6 +124,10 @@ export function Analyze() {
             </div>
           </div>
         </Card>
+      </div>
+
+      <div className="mb-12">
+        <Research />
       </div>
 
       <SubHead>Knowledge, skill, or system gap?</SubHead>
@@ -194,8 +198,6 @@ export function Analyze() {
         practice and feedback. The amenities gap has a knowledge piece too, so I kept the content light, focused it
         where it's needed, and built most of the experience around practice.
       </Thinking>
-
-      <Research />
 
       <Thinking>
         The research tells me what prospects feel. It doesn't tell me why associates tour the way they do. So before
