@@ -245,6 +245,24 @@ export function ImplementPhase() {
 }
 
 export function EvaluatePhase() {
+  const kirkpatrick: string[][] = [
+    [
+      "1 · Reaction",
+      "A two-question pulse at the end of each module (“How useful was this?” and “How ready do you feel to try it on your next tour?”), plus feedback community managers gather in team huddles.",
+    ],
+    [
+      "2 · Learning",
+      "Practice decisions in each module, a pre-check and post-check with the same five questions, and the Maya scenario debrief scored by each step of the sales model.",
+    ],
+    [
+      "3 · Behavior",
+      "Community managers observe a real tour with the Coach checklist at 30, 60 and 90 days. The CRM tracks how many tours get a personal follow-up within 24 hours.",
+    ],
+    [
+      "4 · Results",
+      "Tour-to-lease conversion in pilot communities compared with similar communities, against a 90-day baseline, plus a short prospect survey: “I felt understood” and “I know my next step.”",
+    ],
+  ];
   const kpis: (string | JSX.Element)[][] = [
     ["Completion", "Leading", "90% of associates within 30 days", "App data", "Program manager", "Weekly"],
     ["Confidence by step (pre/post survey)", "Leading", "+1 point on a 5-point scale", "Tour Pulse survey", "Program manager", "Before and at 90 days"],
@@ -266,7 +284,14 @@ export function EvaluatePhase() {
         </p>
       }
     >
-      <SubHead>KPI scorecard</SubHead>
+      <SubHead>Kirkpatrick's four levels</SubHead>
+      <p className="mb-5 mt-2 max-w-prose text-[15px] text-muted">How I'd evaluate the program at each level, from how it felt to what it changed.</p>
+      <DataTable head={["Kirkpatrick level", "Evaluation method"]} rows={kirkpatrick} minWidth={520} />
+
+      <div className="mt-14">
+        <SubHead>KPI scorecard</SubHead>
+        <p className="mt-2 max-w-prose text-[15px] text-muted">The measures I'd report on, with proposed targets and who owns each one.</p>
+      </div>
       <div className="mt-5">
         <DataTable head={["Measure", "Type", "Proposed target", "Source", "Owner", "Reported"]} rows={kpis} minWidth={820} />
       </div>
