@@ -1,10 +1,12 @@
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { Analyze } from "./components/Analyze";
-import { Design } from "./components/Design";
-import { Develop } from "./components/Develop";
-import { Evaluate, Implement } from "./components/ImplementEvaluate";
-import { Experience, Footer, NextSteps, Resources } from "./components/Closing";
+import { Upcoming } from "./components/Upcoming";
+import { Experience, Footer, Resources } from "./components/Closing";
+
+// Earlier drafts of the Design, Develop, Implement, Evaluate and Next steps
+// sections are kept in src/components (Design.tsx, Develop.tsx,
+// ImplementEvaluate.tsx, Closing.tsx > NextSteps) to pull from as we build.
 
 export default function App() {
   return (
@@ -13,11 +15,7 @@ export default function App() {
       <main>
         <Hero />
         <Analyze />
-        <Design />
-        <Develop />
-        <Implement />
-        <Evaluate />
-        <NextSteps />
+        <Upcoming />
         <Experience />
         <Resources />
       </main>
