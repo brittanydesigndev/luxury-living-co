@@ -1,10 +1,20 @@
 import { useState } from "react";
 import associate from "@/assets/leasing-associate.webp";
+import gapKnowledge from "@/assets/gap-knowledge.webp";
+import gapSkill from "@/assets/gap-skill.webp";
+import gapSystem from "@/assets/gap-system.webp";
 import { Card, Phase, StageChip, SubHead, Thinking, type StageId } from "./ui";
 import { Research } from "./Research";
 import { Survey } from "./Survey";
 
-type Diagnosis = "Skill" | "Skill + system";
+type Diagnosis = "Skill" | "Knowledge + skill" | "Skill + system";
+
+// The illustration for each diagnosis shows its leading gap.
+const art: Record<Diagnosis, { src: string; alt: string }> = {
+  Skill: { src: gapSkill, alt: "A leasing associate guiding a prospect through a bright apartment" },
+  "Knowledge + skill": { src: gapKnowledge, alt: "A leasing associate studying a property book with a floor plan" },
+  "Skill + system": { src: gapSystem, alt: "A leasing associate checking off steps on a tablet next to a calendar and keys" },
+};
 
 const observations: {
   id: string;
@@ -33,8 +43,8 @@ const observations: {
   {
     id: "amenities",
     said: "Not effectively showcasing property amenities",
-    diagnosis: "Skill",
-    why: "They know every amenity, so they show every amenity. What's missing is a recommendation: the home and the few amenities that fit this prospect, and why.",
+    diagnosis: "Knowledge + skill",
+    why: "Part of this is knowledge: knowing what each amenity offers and who it matters to, especially for newer associates or after amenities change. The rest is skill. Instead of showing every amenity, they need to recommend the home and the few amenities that fit this prospect, and say why.",
     stage: "recommend",
     stageName: "Make a recommendation",
   },
@@ -96,21 +106,26 @@ export function Analyze() {
             );
           })}
         </ul>
-        <div id="obs-panel" role="tabpanel" aria-labelledby={`obs-${open}`} className="min-w-0 rounded-lg border border-line bg-raised p-6 md:p-8">
+        <div id="obs-panel" role="tabpanel" aria-labelledby={`obs-${open}`} className="min-w-0 overflow-hidden rounded-lg border border-line bg-raised">
+          <div className="flex justify-center" style={{ backgroundColor: "#faecdb" }}>
+            <img src={art[current.diagnosis].src} alt={art[current.diagnosis].alt} className="h-48 w-auto max-w-full object-contain md:h-56" />
+          </div>
+          <div className="p-6 md:p-8">
           <p className="eyebrow">My diagnosis</p>
           <p className="mt-2 font-display text-4xl font-medium">{current.diagnosis} gap</p>
           <p className="mt-4 leading-relaxed">{current.why}</p>
           <div className="mt-6 flex flex-wrap items-center gap-3 border-t border-line pt-5 text-sm text-muted">
             Becomes <StageChip stage={current.stage}>{current.stageName}</StageChip> in the sales model
           </div>
+          </div>
         </div>
       </div>
 
       <Thinking>
         Adult learners bring a lot of experience with them, and leasing associates already know their properties
-        well. Giving them more information about the amenities wouldn't change much. What I saw in these
-        observations was a habit that needed to shift, and habits change through practice and feedback. That's why
-        I kept the content light and built most of the experience around practice.
+        well. Most of what I saw in these observations was a habit that needed to shift, and habits change through
+        practice and feedback. The amenities gap has a knowledge piece too, so I kept the content light, focused it
+        where it's needed, and built most of the experience around practice.
       </Thinking>
 
       <Research />
