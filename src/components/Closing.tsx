@@ -116,13 +116,13 @@ export function Experience() {
           Step into the tour.
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-parchment/85">
-          Start with the sales model, then tour Laurel Park with Maya: six decisions, about ten minutes. Try a
-          path you think is wrong. That's where the feedback gets interesting.
+          Start with the pre-check to see where you're strong, learn the coaching-to-decision model one step at a
+          time, then put it together in the Tour Simulator.
         </p>
         <div className="mt-8 flex justify-center">
           <LaunchButton />
         </div>
-        <p className="mt-4 text-xs text-parchment/60">Opens the Lovable prototype in a new tab. Best on a phone.</p>
+        <p className="mt-4 text-xs text-parchment/60">Opens the learning experience in a new tab. Best on a phone.</p>
       </div>
     </section>
   );
