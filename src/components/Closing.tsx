@@ -130,7 +130,7 @@ export function Footer() {
     <footer className="bg-navy text-parchment/70">
       <div className="gutter mx-auto flex max-w-page flex-wrap items-center justify-between gap-4 border-t border-white/10 py-6 text-sm">
         <p>
-          <span className="text-parchment">{AUTHOR.name}</span> · Learning Experience Designer case for RPM Living
+          <span className="text-parchment">{AUTHOR.name}</span> · Learning experience design case study
         </p>
         <p>Luxury Living Co. is a fictional company. Sources: Rently (2026), Zuma, MRI Software (2020).</p>
       </div>

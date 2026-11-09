@@ -24,7 +24,6 @@ export function Hero() {
             <Monogram className="h-14 w-14" />
             <div>
               <p className="wordmark text-sm">Luxury Living Co.</p>
-              <p className="mt-1 text-xs uppercase tracking-[0.18em] text-parchment/60">Case study · RPM Living</p>
             </div>
           </div>
           <h1 className="mt-10 font-display font-medium leading-[0.95]" style={{ fontSize: "clamp(3rem, 2rem + 4.5vw, 5.25rem)" }}>
