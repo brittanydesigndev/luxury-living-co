@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Luxury Living Co. design system tokens.
+  Values are space-separated RGB channels so Tailwind opacity modifiers work
+  (e.g. bg-navy/80). Brand colors stay fixed; surface, ink and accent tokens
+  switch with the theme.
+*/
+@layer base {
+  :root {
+    /* Brand palette */
+    --midnight-navy: 11 31 43;    /* #0B1F2B */
+    --antique-gold: 198 169 114;  /* #C6A972 */
+    --parchment: 246 243 236;     /* #F6F3EC */
+    --stone: 212 201 187;         /* #D4C9BB */
+    --olive: 75 95 74;            /* #4B5F4A */
+    --bordeaux: 107 46 58;        /* #6B2E3A */
+
+    /* Theme tokens: light */
+    --surface: 246 243 236;
+    --surface-raised: 255 255 255;
+    --surface-sunken: 235 229 217;
+    --ink: 11 31 43;
+    --ink-muted: 90 100 112;
+    --border: 226 217 202;
+    --border-strong: 143 134 120;
+    --accent: 122 94 46;
+    --link: 107 46 58;
+    --primary: 11 31 43;
+    --on-primary: 246 243 236;
+    --success: 63 107 74;
+    --caution: 154 59 51;
+
+    /* The four tour stages */
+    --stage-connect: 107 46 58;   /* Bordeaux */
+    --stage-discover: 75 95 74;   /* Olive */
+    --stage-showcase: 198 169 114;/* Antique Gold */
+    --stage-commit: 47 74 94;     /* Harbor blue */
+
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --surface: 10 24 34;
+      --surface-raised: 18 41 58;
+      --surface-sunken: 7 18 25;
+      --ink: 246 243 236;
+      --ink-muted: 179 173 163;
+      --border: 36 57 74;
+      --border-strong: 125 138 160;
+      --accent: 198 169 114;
+      --link: 217 169 179;
+      --primary: 198 169 114;
+      --on-primary: 11 31 43;
+      --success: 143 196 157;
+      --caution: 232 149 139;
+      color-scheme: dark;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --surface: 10 24 34;
+    --surface-raised: 18 41 58;
+    --surface-sunken: 7 18 25;
+    --ink: 246 243 236;
+    --ink-muted: 179 173 163;
+    --border: 36 57 74;
+    --border-strong: 125 138 160;
+    --accent: 198 169 114;
+    --link: 217 169 179;
+    --primary: 198 169 114;
+    --on-primary: 11 31 43;
+    --success: 143 196 157;
+    --caution: 232 149 139;
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-surface text-ink font-sans antialiased;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+}
+
+@layer components {
+  .gutter {
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .eyebrow {
+    @apply font-sans text-xs font-semibold uppercase text-accent;
+    letter-spacing: 0.16em;
+  }
+  .wordmark {
+    @apply font-display font-medium uppercase;
+    letter-spacing: 0.32em;
+  }
+  .section-title {
+    @apply font-display font-medium text-ink;
+    font-size: clamp(2rem, 1.4rem + 2.4vw, 2.75rem);
+    line-height: 1.08;
+  }
+  .gold-rule {
+    @apply block h-px w-24 bg-gold;
+  }
+  .btn {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-sm px-6 font-sans text-base font-medium transition-colors;
+  }
+  .btn-primary { @apply btn bg-primary text-on-primary hover:opacity-90; }
+  .btn-gold { @apply btn bg-gold text-navy hover:bg-gold/90; }
+  .btn-secondary { @apply btn border border-line-strong bg-transparent text-ink hover:bg-sunken; }
+  .link {
+    @apply font-medium text-link underline decoration-gold decoration-1 underline-offset-4 hover:decoration-2;
+  }
+}
