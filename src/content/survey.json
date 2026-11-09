@@ -1,0 +1,93 @@
+{
+  "title": "Tour Pulse",
+  "subtitle": "A five-minute survey for Leasing Associates",
+  "intro": "We're designing new training on property tours, and we want it built around how you actually work. Your answers are anonymous and are only reported as group totals. There are no right answers.",
+  "purpose": "Run before design starts to size the gap and find barriers, then again at 90 days. The confidence questions map to the four tour stages, so the same items become a before-and-after measure.",
+  "sections": [
+    {
+      "title": "About you",
+      "questions": [
+        { "id": "q1", "type": "single", "text": "How long have you worked in leasing?", "options": ["Less than 1 year", "1 to 3 years", "3 to 5 years", "More than 5 years"] },
+        { "id": "q2", "type": "single", "text": "About how many tours do you give in a typical week?", "options": ["0 to 5", "6 to 10", "11 to 20", "More than 20"] },
+        { "id": "q3", "type": "single", "text": "How many of your community's tours are self-guided?", "options": ["None", "Some", "About half", "Most"] }
+      ]
+    },
+    {
+      "title": "Your tours today",
+      "lead": "How confident are you in each of these on a typical tour?",
+      "scale": ["Not confident", "Slightly", "Somewhat", "Confident", "Very confident"],
+      "questions": [
+        { "id": "q4", "type": "scale", "stage": "connect", "text": "Building a personal connection in the first few minutes" },
+        { "id": "q5", "type": "scale", "stage": "discover", "text": "Learning what the prospect needs before showing any homes" },
+        { "id": "q6", "type": "scale", "stage": "showcase", "text": "Choosing which amenities to show and tying them to the prospect" },
+        { "id": "q7", "type": "scale", "stage": "commit", "text": "Ending with a clear next step the prospect agrees to" },
+        { "id": "q8", "type": "scale", "stage": "commit", "text": "Sending a personal follow-up within 24 hours" }
+      ]
+    },
+    {
+      "title": "What gets in the way",
+      "questions": [
+        {
+          "id": "q9",
+          "type": "multi",
+          "text": "What makes it hard to personalize a tour? Select all that apply.",
+          "options": [
+            "Not enough time between appointments",
+            "I know little about the prospect before they arrive",
+            "Walk-ins with no inquiry details",
+            "I'm not sure which questions to ask",
+            "I worry personal questions could raise Fair Housing concerns",
+            "We're expected to follow a standard route",
+            "Other"
+          ]
+        },
+        {
+          "id": "q10",
+          "type": "multi",
+          "text": "What makes follow-up harder? Select all that apply.",
+          "options": [
+            "Too many leads to keep up with",
+            "No reminder or task in the CRM",
+            "I'm not sure what to say beyond “thanks for visiting”",
+            "Prospects rarely respond",
+            "Someone else handles follow-up",
+            "Other"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "How you like to learn",
+      "questions": [
+        { "id": "q11", "type": "single", "text": "Where would you most likely use tour training?", "options": ["On my phone between tours", "At a desk", "In team meetings", "Shadowing a teammate"] },
+        {
+          "id": "q12",
+          "type": "multi",
+          "text": "Which would help you most? Choose up to two.",
+          "options": [
+            "Short videos of real tours",
+            "Practicing realistic scenarios",
+            "Role-play with teammates",
+            "Feedback from my manager on a real tour",
+            "A quick-reference card on my phone",
+            "Hearing how top performers tour"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "In your words",
+      "questions": [
+        { "id": "q13", "type": "open", "text": "Think of your best tour in the last month. What made it work?" },
+        { "id": "q14", "type": "open", "text": "What's one thing you wish you'd learned sooner about giving tours?" }
+      ]
+    }
+  ],
+  "howUsed": [
+    "Q4 to Q8 set the baseline for each tour stage and are repeated at 90 days.",
+    "Q9 and Q10 separate skill gaps from time and system barriers, such as a missing CRM task.",
+    "Q9's Fair Housing option shows whether the training needs to make asking safe.",
+    "Q11 and Q12 confirm the mobile-first, practice-heavy format before it's built.",
+    "Q13 and Q14 supply real moments for scenarios and persona cards."
+  ]
+}

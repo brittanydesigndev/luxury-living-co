@@ -1,8 +1,10 @@
 import lobby from "@/assets/lobby.jpg";
-import { AUTHOR } from "@/config";
+import { Download, FileText } from "lucide-react";
+import { AUTHOR, DOCS } from "@/config";
 import { Card, LaunchButton, Monogram } from "./ui";
 
 const validate = [
+  "Send the Tour Pulse survey to associates to size the gap by stage and surface barriers.",
   "Shadow eight to ten tours and listen to recorded ones, at strong and struggling communities.",
   "Interview top performers: what do they do in the first two minutes that others don't?",
   "Pull CRM data on follow-up timing and conversion by associate to size the gap.",
@@ -48,6 +50,55 @@ export function NextSteps() {
             </ul>
           </Card>
         </div>
+      </div>
+    </section>
+  );
+}
+
+const docs = [
+  {
+    ...DOCS.brief,
+    blurb: "The approach, design decisions, beyond-the-course support, measurement plan and next steps, as submitted.",
+  },
+  {
+    ...DOCS.survey,
+    blurb: "The needs-analysis survey I'd send associates before building, with notes on how each answer is used.",
+  },
+];
+
+export function Resources() {
+  return (
+    <section id="documents" className="bg-surface">
+      <div className="gutter mx-auto max-w-page py-16 md:py-20">
+        <p className="eyebrow">Take it with you</p>
+        <h2 className="section-title mt-2">Documents</h2>
+        <span className="gold-rule mt-5" />
+        <ul className="mt-10 grid gap-5 md:grid-cols-2">
+          {docs.map((d) => (
+            <li key={d.href}>
+              <Card className="flex h-full flex-col">
+                <div className="flex items-start gap-4">
+                  <span className="flex h-14 w-11 shrink-0 items-center justify-center rounded-sm bg-navy text-gold">
+                    <FileText aria-hidden className="h-5 w-5" />
+                  </span>
+                  <div className="min-w-0">
+                    <p className="font-display text-2xl leading-tight">{d.title}</p>
+                    <p className="text-xs uppercase tracking-[0.12em] text-muted">PDF · {d.pages}</p>
+                  </div>
+                </div>
+                <p className="mt-4 flex-1 text-[15px] leading-relaxed text-muted">{d.blurb}</p>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <a href={d.href} download className="btn-primary min-h-[40px] px-4 text-sm">
+                    <Download aria-hidden className="h-4 w-4" /> Download
+                  </a>
+                  <a href={d.href} target="_blank" rel="noreferrer" className="btn-secondary min-h-[40px] px-4 text-sm">
+                    Open in a new tab
+                  </a>
+                </div>
+              </Card>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

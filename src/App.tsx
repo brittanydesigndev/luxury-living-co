@@ -4,7 +4,7 @@ import { Analyze } from "./components/Analyze";
 import { Design } from "./components/Design";
 import { Develop } from "./components/Develop";
 import { Evaluate, Implement } from "./components/ImplementEvaluate";
-import { Experience, Footer, NextSteps } from "./components/Closing";
+import { Experience, Footer, NextSteps, Resources } from "./components/Closing";
 
 export default function App() {
   return (
@@ -19,6 +19,7 @@ export default function App() {
         <Evaluate />
         <NextSteps />
         <Experience />
+        <Resources />
       </main>
       <Footer />
     </>

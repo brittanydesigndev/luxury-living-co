@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Card, Phase, StageChip, SubHead, Thinking, type StageId } from "./ui";
+import { Research } from "./Research";
+import { Survey } from "./Survey";
 
 type Diagnosis = "Skill" | "Skill + system";
 
@@ -52,11 +54,6 @@ const learner = [
   ["What they care about", "Signed leases, a good day on the floor, and being recognized for great service."],
 ];
 
-const stats = [
-  { figure: "88%", text: "of renters say a disorganized tour changes their opinion of the property itself.", source: "Rently, 2026" },
-  { figure: "57%", text: "still want a person to answer questions, even though self-guided is the most popular first step.", source: "Rently, 2026" },
-  { figure: "85% vs 40%", text: "show rates for tours booked within three days versus a week or more out.", source: "Zuma, 1.5M tours" },
-];
 
 export function Analyze() {
   const [open, setOpen] = useState("connection");
@@ -113,10 +110,12 @@ export function Analyze() {
         decided the format: mostly practice, very little content.
       </Thinking>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <Research />
+
+      <div className="mt-6 grid gap-6 lg:grid-cols-[1.4fr_1fr]">
         <Card>
           <SubHead>Who I'm designing for</SubHead>
-          <dl className="mt-5 space-y-4">
+          <dl className="mt-5 grid gap-4 sm:grid-cols-2">
             {learner.map(([k, v]) => (
               <div key={k}>
                 <dt className="eyebrow">{k}</dt>
@@ -125,36 +124,22 @@ export function Analyze() {
             ))}
           </dl>
         </Card>
-        <div className="space-y-4">
-          <Card>
-            <SubHead>What the research says</SubHead>
-            <ul className="mt-5 space-y-4">
-              {stats.map((s) => (
-                <li key={s.figure} className="grid grid-cols-[110px_1fr] gap-4">
-                  <span className="font-display text-3xl font-medium text-accent" style={{ fontVariantNumeric: "tabular-nums" }}>
-                    {s.figure}
-                  </span>
-                  <span className="text-[15px] leading-snug">
-                    {s.text} <span className="text-xs text-muted">({s.source})</span>
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-5 border-t border-line pt-4 text-sm text-muted">
-              MRI Software's analysis of about 10,000 tours found that prospects with a personal interaction convert
-              at higher rates. The associate is the difference.
-            </p>
-          </Card>
-          <Card className="border-navy bg-navy text-parchment">
-            <p className="eyebrow text-gold">The lens I brought</p>
-            <p className="mt-2 text-[15px] leading-relaxed text-parchment/90">
-              I roll out new processes across 200+ multifamily communities. I've seen that a change sticks when the
-              community manager owns it, and that a CRM task beats a reminder email every time. Both shaped this
-              design.
-            </p>
-          </Card>
-        </div>
+        <Card className="border-navy bg-navy text-parchment">
+          <p className="eyebrow text-gold">The lens I brought</p>
+          <p className="mt-2 text-[15px] leading-relaxed text-parchment/90">
+            I roll out new processes across 200+ multifamily communities. I've seen that a change sticks when the
+            community manager owns it, and that a CRM task beats a reminder email every time. Both shaped this
+            design.
+          </p>
+        </Card>
       </div>
+
+      <Thinking>
+        The research tells me what prospects feel. It doesn't tell me why associates tour the way they do. So before
+        designing anything, I'd ask them.
+      </Thinking>
+
+      <Survey />
 
       <div className="mt-6 grid gap-6 md:grid-cols-2">
         <Card>
