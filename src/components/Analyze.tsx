@@ -106,8 +106,10 @@ export function Analyze() {
       </div>
 
       <Thinking>
-        Nobody on that list needs more information about the pool. They need a different habit. That one insight
-        decided the format: mostly practice, very little content.
+        Adult learners bring a lot of experience with them, and leasing associates already know their properties
+        well. Giving them more information about the amenities wouldn't change much. What I saw in these
+        observations was a habit that needed to shift, and habits change through practice and feedback. That's why
+        I kept the content light and built most of the experience around practice.
       </Thinking>
 
       <Research />
