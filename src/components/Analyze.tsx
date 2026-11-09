@@ -199,10 +199,11 @@ export function Analyze() {
         where it's needed, and built most of the experience around practice.
       </Thinking>
 
-      <Thinking>
-        The research tells me what prospects feel. It doesn't tell me why associates tour the way they do. So before
+      <SubHead>Asking the associates</SubHead>
+      <p className="mb-6 mt-2 max-w-prose text-[15px] text-muted">
+        The research shows how prospects feel. It doesn't explain why associates tour the way they do, so before
         designing anything, I'd ask them.
-      </Thinking>
+      </p>
 
       <Survey />
 
