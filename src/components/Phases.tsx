@@ -1,7 +1,7 @@
 // Design, Develop, Implement and Evaluate, written from Brittany's own notes.
 // Earlier, longer drafts are in Design.tsx, Develop.tsx and ImplementEvaluate.tsx.
 
-import { BookOpen, ClipboardCheck, MessagesSquare, Smartphone, TrendingUp, Users } from "lucide-react";
+import { BookOpen, ClipboardCheck, Clock, MessagesSquare, Smartphone, TrendingUp } from "lucide-react";
 import { DOCS } from "@/config";
 import { Card, LaunchButton, Phase, Thinking } from "./ui";
 import { SalesModel } from "./SalesModel";
@@ -9,18 +9,18 @@ import { SalesModel } from "./SalesModel";
 export function DesignPhase() {
   const reasons = [
     {
-      icon: Users,
-      title: "It fits how RPM Living already works",
-      body: "RPM Living already uses Lovable, so the experience can live alongside the tools teams know.",
+      icon: Smartphone,
+      title: "It meets them where they already are",
+      body: "Associates reach for their phones all day. Learning that lives there feels familiar, not like one more system to log into.",
     },
     {
-      icon: Smartphone,
-      title: "It works on their feet",
-      body: "Associates can open it on a phone between tours instead of finding time at a desk.",
+      icon: Clock,
+      title: "It fits between tours",
+      body: "Short pieces they can finish in a few minutes, instead of blocking off time at a desk.",
     },
     {
       icon: BookOpen,
-      title: "It's a place to come back to",
+      title: "It's there when they need it",
       body: "The same app they learn in becomes a quick reference before their next tour.",
     },
   ];
@@ -43,9 +43,9 @@ export function DesignPhase() {
       <SalesModel />
 
       <Thinking>
-        I chose this design and format because RPM Living is already using Lovable, and I think it's a great
-        resource for associates to use while they're on their feet. They can practice between tours and pull it up
-        again when they need it.
+        I chose a mobile format because it meets associates where they already spend their time. They're on their
+        phones throughout the day, so learning in short pieces on a device they already use feels natural. They can
+        practice between tours and pull it up again when they need it.
       </Thinking>
 
       <ul className="grid gap-4 md:grid-cols-3">
