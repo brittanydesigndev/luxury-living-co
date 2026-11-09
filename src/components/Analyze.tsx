@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { MessageSquareQuote } from "lucide-react";
 import associate from "@/assets/leasing-associate.webp";
 import gapKnowledge from "@/assets/gap-knowledge.webp";
 import gapSkill from "@/assets/gap-skill.webp";
@@ -91,28 +92,46 @@ export function Analyze() {
       }
     >
       <div className="grid gap-4 lg:grid-cols-[1fr_1.15fr]">
-        <ul role="tablist" aria-label="Leadership observations" className="space-y-2">
-          {observations.map((o) => {
-            const on = o.id === open;
-            return (
-              <li key={o.id}>
-                <button
-                  id={`obs-${o.id}`}
-                  role="tab"
-                  aria-selected={on}
-                  aria-controls="obs-panel"
-                  onClick={() => setOpen(o.id)}
-                  className={`flex w-full items-start gap-3 rounded-md border p-4 text-left transition-colors ${
-                    on ? "border-primary bg-primary text-on-primary" : "border-line bg-raised hover:border-accent"
-                  }`}
-                >
-                  <span aria-hidden className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${on ? "bg-gold" : "bg-line-strong"}`} />
-                  <span className="text-[15px] leading-snug">“{o.said}”</span>
-                </button>
-              </li>
-            );
-          })}
-        </ul>
+        <div className="min-w-0">
+          <p className="eyebrow mb-3 flex items-center gap-2">
+            <MessageSquareQuote aria-hidden className="h-4 w-4" /> What leadership told us
+          </p>
+          <ul role="tablist" aria-label="Leadership observations" className="space-y-5">
+            {observations.map((o) => {
+              const on = o.id === open;
+              return (
+                <li key={o.id}>
+                  <button
+                    id={`obs-${o.id}`}
+                    role="tab"
+                    aria-selected={on}
+                    aria-controls="obs-panel"
+                    onClick={() => setOpen(o.id)}
+                    className={`group relative w-full rounded-2xl border px-5 py-3.5 text-left shadow-sm transition-colors ${
+                      on ? "border-primary bg-primary text-on-primary" : "border-line bg-raised hover:border-accent"
+                    }`}
+                  >
+                    <span className="text-[15px] leading-snug">“{o.said}”</span>
+                    {/* speech-bubble tail */}
+                    <svg
+                      aria-hidden
+                      viewBox="0 0 18 14"
+                      className="absolute -bottom-[13px] left-4 h-[14px] w-[18px] overflow-visible"
+                    >
+                      <path d="M1 -1 L17 -1 Q11 7 2 13 Q6 6 1 -1 Z" className={on ? "fill-primary" : "fill-raised"} />
+                      <path
+                        d="M17 0 Q11 7 2 13 Q6 6 1 0"
+                        fill="none"
+                        strokeWidth="1"
+                        className={on ? "stroke-primary" : "stroke-line group-hover:stroke-accent"}
+                      />
+                    </svg>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
         <div id="obs-panel" role="tabpanel" aria-labelledby={`obs-${open}`} className="min-w-0 overflow-hidden rounded-lg border border-line bg-raised">
           <div className="flex justify-center" style={{ backgroundColor: "#faecdb" }}>
             <img
