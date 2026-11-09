@@ -2,9 +2,9 @@ import { useState } from "react";
 import { MessageSquareQuote } from "lucide-react";
 import associate from "@/assets/leasing-associate.webp";
 import gapKnowledge from "@/assets/gap-knowledge.webp";
-import gapSkill from "@/assets/gap-skill.webp";
 import gapSystem from "@/assets/gap-system.webp";
 import gapPersonalize from "@/assets/gap-personalize.webp";
+import gapConnection from "@/assets/gap-connection.webp";
 import { Card, Phase, StageChip, SubHead, Thinking, type StageId } from "./ui";
 import { Research } from "./Research";
 import { Survey } from "./Survey";
@@ -14,7 +14,11 @@ type Diagnosis = "Skill" | "Knowledge + skill" | "Skill + system";
 // One illustration per observation. "cover" fills the frame (full scenes);
 // the others are vignettes on a cream ground.
 const art: Record<string, { src: string; alt: string; cover?: boolean }> = {
-  connection: { src: gapSkill, alt: "A leasing associate guiding a prospect through a bright apartment" },
+  connection: {
+    src: gapConnection,
+    alt: "A leasing associate chatting over coffee with a prospect in the leasing office lobby",
+    cover: true,
+  },
   personalize: {
     src: gapPersonalize,
     alt: "A leasing associate showing the fitness center to a prospect carrying a gym bag and water bottle",
