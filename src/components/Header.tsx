@@ -10,12 +10,15 @@ export const phases = [
   { id: "evaluate", letter: "E", name: "Evaluate" },
 ];
 
+// Sections tracked in the nav after the five ADDIE phases.
+const extras = [{ id: "next-steps", name: "Next steps" }];
+
 export function Header() {
   const [active, setActive] = useState<string | null>(null);
 
   // Highlight the ADDIE phase currently on screen.
   useEffect(() => {
-    const els = phases.map((p) => document.getElementById(p.id)).filter(Boolean) as HTMLElement[];
+    const els = [...phases, ...extras].map((p) => document.getElementById(p.id)).filter(Boolean) as HTMLElement[];
     const obs = new IntersectionObserver(
       (entries) => {
         const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
@@ -52,6 +55,22 @@ export function Header() {
                   >
                     <span className="font-display text-lg leading-none">{p.letter}</span>
                     <span className="hidden lg:inline">{p.name}</span>
+                  </a>
+                </li>
+              );
+            })}
+            {extras.map((x) => {
+              const on = active === x.id;
+              return (
+                <li key={x.id} className="ml-1 border-l border-white/20 pl-2 sm:ml-2 sm:pl-3">
+                  <a
+                    href={`#${x.id}`}
+                    aria-current={on ? "step" : undefined}
+                    className={`flex min-h-[36px] items-center rounded-sm px-2 text-sm transition-colors ${
+                      on ? "bg-gold text-navy" : "text-parchment/80 hover:text-gold"
+                    }`}
+                  >
+                    {x.name}
                   </a>
                 </li>
               );
