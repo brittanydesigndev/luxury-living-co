@@ -12,7 +12,7 @@ type Diagnosis = "Skill" | "Knowledge + skill" | "Skill + system";
 // The illustration for each diagnosis shows its leading gap.
 const art: Record<Diagnosis, { src: string; alt: string }> = {
   Skill: { src: gapSkill, alt: "A leasing associate guiding a prospect through a bright apartment" },
-  "Knowledge + skill": { src: gapKnowledge, alt: "A leasing associate studying a property book with a floor plan" },
+  "Knowledge + skill": { src: gapKnowledge, alt: "A leasing associate taking notes at a laptop next to a stack of books" },
   "Skill + system": { src: gapSystem, alt: "A leasing associate checking off steps on a tablet next to a calendar and keys" },
 };
 
