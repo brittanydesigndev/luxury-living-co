@@ -87,14 +87,47 @@ export function Analyze() {
       id="analyze"
       letter="A"
       name="Analyze"
-      question="Is this a knowledge, skill, or system gap?"
+      question="Who are we designing for, and what's really getting in the way?"
       summary={
         <p>
-          Leadership described four symptoms. Before choosing a format, I diagnosed each one, because the answer
-          decides everything that follows. Select an observation to see how I read it.
+          I started with the learner, then looked at each of leadership's four observations and asked whether it was
+          a knowledge, skill, or system gap. The answer decides everything that follows.
         </p>
       }
     >
+      <div className="mb-10">
+        <Card className="overflow-hidden p-0">
+          <div className="grid items-end md:grid-cols-[minmax(0,15rem)_1fr]">
+            <div className="flex justify-center bg-sunken px-6 pt-6 md:h-full md:items-end">
+              <img
+                src={associate}
+                alt="Illustration of a smiling leasing associate in a navy blazer, holding an apartment brochure"
+                className="h-auto w-44 max-w-full md:w-full"
+                loading="lazy"
+              />
+            </div>
+            <div className="min-w-0 p-6 md:p-8">
+              <p className="eyebrow">The learner</p>
+              <SubHead>Who I'm designing for</SubHead>
+              <p className="mt-2 max-w-prose text-[15px] text-muted">
+                Leasing Associates who give tours every day. They know their community well and spend most of the day
+                with prospects, not at a desk.
+              </p>
+              <dl className="mt-6 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+                {learner.map(([k, v]) => (
+                  <div key={k}>
+                    <dt className="eyebrow">{k}</dt>
+                    <dd className="mt-1 text-[15px] leading-relaxed">{v}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+        </Card>
+      </div>
+
+      <SubHead>Knowledge, skill, or system gap?</SubHead>
+      <p className="mb-6 mt-2 max-w-prose text-[15px] text-muted">Select an observation to see how I diagnosed it.</p>
       <div className="grid gap-4 lg:grid-cols-[1fr_1.15fr]">
         <div className="min-w-0">
           <p className="eyebrow mb-3 flex items-center gap-2">
@@ -163,37 +196,6 @@ export function Analyze() {
       </Thinking>
 
       <Research />
-
-      <div className="mt-6">
-        <Card className="overflow-hidden p-0">
-          <div className="grid items-end md:grid-cols-[minmax(0,15rem)_1fr]">
-            <div className="flex justify-center bg-sunken px-6 pt-6 md:h-full md:items-end">
-              <img
-                src={associate}
-                alt="Illustration of a smiling leasing associate in a navy blazer, holding an apartment brochure"
-                className="h-auto w-44 max-w-full md:w-full"
-                loading="lazy"
-              />
-            </div>
-            <div className="min-w-0 p-6 md:p-8">
-              <p className="eyebrow">The learner</p>
-              <SubHead>Who I'm designing for</SubHead>
-              <p className="mt-2 max-w-prose text-[15px] text-muted">
-                Leasing Associates who give tours every day. They know their community well and spend most of the day
-                with prospects, not at a desk.
-              </p>
-              <dl className="mt-6 grid gap-x-8 gap-y-5 sm:grid-cols-2">
-                {learner.map(([k, v]) => (
-                  <div key={k}>
-                    <dt className="eyebrow">{k}</dt>
-                    <dd className="mt-1 text-[15px] leading-relaxed">{v}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          </div>
-        </Card>
-      </div>
 
       <Thinking>
         The research tells me what prospects feel. It doesn't tell me why associates tour the way they do. So before
