@@ -1,4 +1,5 @@
 import { useState } from "react";
+import associate from "@/assets/leasing-associate.webp";
 import { Card, Phase, StageChip, SubHead, Thinking, type StageId } from "./ui";
 import { Research } from "./Research";
 import { Survey } from "./Survey";
@@ -115,16 +116,33 @@ export function Analyze() {
       <Research />
 
       <div className="mt-6">
-        <Card>
-          <SubHead>Who I'm designing for</SubHead>
-          <dl className="mt-5 grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-4">
-            {learner.map(([k, v]) => (
-              <div key={k}>
-                <dt className="eyebrow">{k}</dt>
-                <dd className="mt-1 text-[15px] leading-relaxed">{v}</dd>
-              </div>
-            ))}
-          </dl>
+        <Card className="overflow-hidden p-0">
+          <div className="grid items-end md:grid-cols-[minmax(0,15rem)_1fr]">
+            <div className="flex justify-center bg-sunken px-6 pt-6 md:h-full md:items-end">
+              <img
+                src={associate}
+                alt="Illustration of a smiling leasing associate in a navy blazer, holding an apartment brochure"
+                className="h-auto w-44 max-w-full md:w-full"
+                loading="lazy"
+              />
+            </div>
+            <div className="min-w-0 p-6 md:p-8">
+              <p className="eyebrow">The learner</p>
+              <SubHead>Who I'm designing for</SubHead>
+              <p className="mt-2 max-w-prose text-[15px] text-muted">
+                Leasing Associates who give tours every day. They know their community well and spend most of the day
+                with prospects, not at a desk.
+              </p>
+              <dl className="mt-6 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+                {learner.map(([k, v]) => (
+                  <div key={k}>
+                    <dt className="eyebrow">{k}</dt>
+                    <dd className="mt-1 text-[15px] leading-relaxed">{v}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
         </Card>
       </div>
 

@@ -88,7 +88,8 @@ export function Card({ children, className = "" }: { children: ReactNode; classN
   // A className that sets its own background replaces the default raised surface.
   const bg = /(^|\s)bg-/.test(className) ? "" : "bg-raised";
   const border = /(^|\s)border-(?!line)/.test(className) ? "" : "border-line";
-  return <div className={`min-w-0 rounded-lg border ${border} ${bg} p-6 ${className}`}>{children}</div>;
+  const pad = /(^|\s)p-\d/.test(className) ? "" : "p-6";
+  return <div className={`min-w-0 rounded-lg border ${border} ${bg} ${pad} ${className}`}>{children}</div>;
 }
 
 /** A first-person aside showing how I was thinking at that moment. */
