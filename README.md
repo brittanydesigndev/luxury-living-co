@@ -19,17 +19,21 @@ Every "Launch the learning experience" and "View the experience" button uses it.
 | Section | What it shows |
 | --- | --- |
 | Hero | The ask, my role, timeline and tools |
-| **A**nalyze | An interactive diagnosis of each leadership observation (skill vs. system gap), the learner profile, research, assumptions and the Fair Housing constraint |
-| **D**esign | Performance objectives, the Connect / Discover / Showcase / Commit model, six design decisions (what I chose, over what, and why), the learning journey and the scenario blueprint |
+| **A**nalyze | An interactive diagnosis of each leadership observation (skill vs. system gap), research with sources, the learner profile, the Tour Pulse associate survey, assumptions and the Fair Housing constraint |
+| **D**esign | Performance objectives built on the coaching-to-decision sales model (build the relationship with frame to engage, understand the need, make a recommendation, set up next steps, ask at any time), six design decisions (what I chose, over what, and why), the learning journey and the scenario blueprint |
 | **D**evelop | How I built it, the design system, a phone preview of the scenario, and what's in the prototype vs. represented |
 | **I**mplement | Managers-first rollout, pilot, scale, and the CRM follow-up nudge |
 | **E**valuate | Measures at all four levels, leading and lagging indicators |
 | Next steps | What I'd validate with learners and SMEs, and what I'd build next |
 | The experience | The link out to the Lovable app |
+| Documents | Downloadable design brief and Tour Pulse survey PDFs (in `public/docs`) |
 
 "My thinking" pull quotes throughout are written in my voice; edit them freely.
 
 ## Editing
+
+The sales model lives in `src/content/model.ts` and the survey in `src/content/survey.json`; both feed every section that uses them.
+
 
 Each phase is its own component in `src/components/` (`Analyze.tsx`, `Design.tsx`, `Develop.tsx`, `ImplementEvaluate.tsx`, `Closing.tsx`). The text lives in arrays at the top of each file, so you can change wording without touching layout.
 
