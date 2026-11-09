@@ -4,7 +4,7 @@ import { AUTHOR, DOCS } from "@/config";
 import { Card, LaunchButton, Monogram } from "./ui";
 
 const validate = [
-  "Send the Tour Pulse survey to associates to size the gap by stage and surface barriers.",
+  "Send the Tour Pulse survey to associates to size the gap at each step of the sales model and surface barriers.",
   "Shadow eight to ten tours and listen to recorded ones, at strong and struggling communities.",
   "Interview top performers: what do they do in the first two minutes that others don't?",
   "Pull CRM data on follow-up timing and conversion by associate to size the gap.",
@@ -116,7 +116,7 @@ export function Experience() {
           Step into the tour.
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-parchment/85">
-          Start with the four-stage model, then tour Laurel Park with Maya: six decisions, about ten minutes. Try a
+          Start with the sales model, then tour Laurel Park with Maya: six decisions, about ten minutes. Try a
           path you think is wrong. That's where the feedback gets interesting.
         </p>
         <div className="mt-8 flex justify-center">

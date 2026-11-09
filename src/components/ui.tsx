@@ -3,17 +3,19 @@ import { ArrowUpRight } from "lucide-react";
 import monogram from "@/assets/ll-monogram.svg";
 import { LOVABLE_APP_URL } from "@/config";
 
-export type StageId = "connect" | "discover" | "showcase" | "commit";
+import type { StageId } from "@/content/model";
+export type { StageId };
 
 export function Monogram({ className = "" }: { className?: string }) {
   return <img src={monogram} alt="" aria-hidden className={className} />;
 }
 
 export const stageClasses: Record<StageId, string> = {
-  connect: "bg-connect text-white",
-  discover: "bg-discover text-white",
-  showcase: "bg-showcase text-navy",
-  commit: "bg-commit text-white",
+  relationship: "bg-connect text-white",
+  need: "bg-discover text-white",
+  recommend: "bg-showcase text-navy",
+  next: "bg-commit text-white",
+  ask: "border border-gold bg-gold/15 text-ink",
 };
 
 export function StageChip({ stage, children }: { stage: StageId; children: ReactNode }) {

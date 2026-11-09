@@ -17,33 +17,33 @@ const observations: {
     id: "connection",
     said: "Not consistently building connection with prospects",
     diagnosis: "Skill",
-    why: "Associates know how to be friendly. The tour simply starts with the property instead of the person, so the first two minutes go to logistics.",
-    stage: "connect",
-    stageName: "Connect",
+    why: "Associates know how to be friendly. The tour simply starts with the property instead of the person, and nobody frames the visit, so the first two minutes go to logistics.",
+    stage: "relationship",
+    stageName: "Build the relationship",
   },
   {
     id: "personalize",
     said: "Missing opportunities to personalize the tour",
     diagnosis: "Skill",
     why: "Personalizing needs information the associate doesn't have yet. Without the habit of asking discovery questions first, every tour defaults to the same route.",
-    stage: "discover",
-    stageName: "Discover",
+    stage: "need",
+    stageName: "Understand the need",
   },
   {
     id: "amenities",
     said: "Not effectively showcasing property amenities",
     diagnosis: "Skill",
-    why: "They know every amenity. What's missing is the bridge from a feature to what it means for this prospect, so amenities come out as a list.",
-    stage: "showcase",
-    stageName: "Showcase",
+    why: "They know every amenity, so they show every amenity. What's missing is a recommendation: the home and the few amenities that fit this prospect, and why.",
+    stage: "recommend",
+    stageName: "Make a recommendation",
   },
   {
     id: "next-steps",
     said: "Not consistently communicating next steps or following up",
     diagnosis: "Skill + system",
-    why: "Closing with a specific next step is a skill. Following up within 24 hours also depends on workload and the CRM, so training alone won't fix it.",
-    stage: "commit",
-    stageName: "Commit",
+    why: "Setting a specific next step is a skill, and so is asking for the decision, which many associates save for the very end or skip. Following up within 24 hours also depends on workload and the CRM, so training alone won't fix it.",
+    stage: "next",
+    stageName: "Set up next steps",
   },
 ];
 
@@ -100,7 +100,7 @@ export function Analyze() {
           <p className="mt-2 font-display text-4xl font-medium">{current.diagnosis} gap</p>
           <p className="mt-4 leading-relaxed">{current.why}</p>
           <div className="mt-6 flex flex-wrap items-center gap-3 border-t border-line pt-5 text-sm text-muted">
-            Becomes the <StageChip stage={current.stage}>{current.stageName}</StageChip> stage of the tour model
+            Becomes <StageChip stage={current.stage}>{current.stageName}</StageChip> in the sales model
           </div>
         </div>
       </div>

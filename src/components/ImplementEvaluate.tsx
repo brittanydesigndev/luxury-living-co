@@ -15,8 +15,8 @@ const support = [
 
 const levels = [
   { level: "Reaction", measure: "Relevance and confidence: “I can use this on my next tour.”", source: "Two-question pulse in the app" },
-  { level: "Learning", measure: "Scenario performance by stage, first attempt compared with the final one.", source: "Prototype decision data" },
-  { level: "Behavior", measure: "Observation scores on all four stages at 30, 60 and 90 days. Share of tours with a personal follow-up logged within 24 hours.", source: "Concierge checklist, CRM, mystery shops" },
+  { level: "Learning", measure: "Scenario performance on each step of the model, first attempt compared with the final one.", source: "Prototype decision data" },
+  { level: "Behavior", measure: "Observation scores on every step of the sales model, including asking, at 30, 60 and 90 days. Share of tours with a personal follow-up logged within 24 hours.", source: "Concierge checklist, CRM, mystery shops" },
   { level: "Results", measure: "Tour-to-application and tour-to-lease conversion. Post-tour survey: “I felt understood” and “I know my next step.”", source: "CRM, prospect survey, reviews" },
 ];
 

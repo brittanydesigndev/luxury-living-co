@@ -3,6 +3,7 @@ import { Download } from "lucide-react";
 import survey from "@/content/survey.json";
 import { DOCS } from "@/config";
 import { StageChip, type StageId } from "./ui";
+import { stageById } from "@/content/model";
 
 type Question = {
   id: string;
@@ -72,7 +73,7 @@ export function Survey() {
                   </span>
                   <div className="min-w-0">
                     <p className="text-[15px] font-medium leading-snug">
-                      {q.text} {q.stage && <StageChip stage={q.stage as StageId}>{q.stage}</StageChip>}
+                      {q.text} {q.stage && <StageChip stage={q.stage as StageId}>{stageById[q.stage as StageId].short}</StageChip>}
                     </p>
                     {q.options && (
                       <ul className="mt-2 grid gap-x-4 gap-y-1 text-sm text-muted sm:grid-cols-2">

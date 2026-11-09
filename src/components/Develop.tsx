@@ -3,7 +3,7 @@ import { Card, LaunchButton, Phase, StageChip, SubHead, Thinking } from "./ui";
 
 const steps = [
   { title: "Write before building", body: "I scripted the scenario, feedback and Maya's inner thoughts in a document first. Content decisions are cheaper to change in words than in an app." },
-  { title: "Build the brand", body: "I turned a brand board into a design system: color and type tokens, stage colors and components, so every screen stays consistent." },
+  { title: "Build the brand", body: "I turned a brand board into a design system: color and type tokens, model colors and components, so every screen stays consistent." },
   { title: "Prototype in Lovable", body: "I built the experience as a mobile-first web app with all the content in editable data files, so an SME can change wording without touching layout." },
   { title: "Check it on a phone", body: "I tested at phone width in light and dark mode, checked text contrast, and made every tap target at least 44 pixels." },
 ];
@@ -18,7 +18,7 @@ const palette = [
 ];
 
 const inPrototype = [
-  "The four-stage model",
+  "The coaching-to-decision sales model",
   "Two Tours comparison",
   "The full branching scenario with Maya",
   "Key Card job aid",
@@ -37,7 +37,7 @@ function PhoneMockup() {
           </div>
         </div>
         <div className="space-y-3 p-4">
-          <StageChip stage="discover">Discover</StageChip>
+          <StageChip stage="need">Understand the need</StageChip>
           <p className="font-display text-lg italic leading-snug">Maya: “I start at Northside Hospital in three weeks.”</p>
           <p className="text-sm font-medium">What do you say next?</p>
           <div className="rounded-md border border-line-strong bg-raised p-2.5 text-[12px] leading-snug">“You'll love our resort-style pool!”</div>

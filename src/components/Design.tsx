@@ -1,11 +1,6 @@
 import { Card, Phase, StageChip, SubHead, Thinking, type StageId } from "./ui";
-
-const objectives: { stage: StageId; name: string; behavior: string }[] = [
-  { stage: "connect", name: "Connect", behavior: "Greets the prospect by name and uses one detail from their inquiry within the first two minutes." },
-  { stage: "discover", name: "Discover", behavior: "Asks at least three open questions about the prospect's life before entering a home." },
-  { stage: "showcase", name: "Showcase", behavior: "Routes the tour around what they heard and ties each amenity to the prospect: feature, benefit, you." },
-  { stage: "commit", name: "Commit", behavior: "Agrees on a specific next step out loud and sends a personal follow-up within 24 hours." },
-];
+import { SalesModel } from "./SalesModel";
+import { stageById } from "@/content/model";
 
 const decisions = [
   {
@@ -34,10 +29,11 @@ const decisions = [
     because: "Experienced agents push back on being graded. Seeing Maya's inner thought is more honest and more persuasive.",
   },
   {
-    chose: "A hospitality brand",
-    over: "a compliance-training look",
-    because: "“The Art of the Tour” frames touring as a craft people grow in. It respects veterans and fits a luxury company.",
+    chose: "The coaching-to-decision sales model",
+    over: "a new framework made just for training",
+    because: "Associates and managers already sell with it. The training shows what each step looks like on a tour, so coaching and selling use one language.",
   },
+
 ];
 
 const journey = [
@@ -50,12 +46,12 @@ const journey = [
 ];
 
 const scenarioSteps: { stage: StageId; moment: string }[] = [
-  { stage: "connect", moment: "The arrival" },
-  { stage: "discover", moment: "Why she's moving" },
-  { stage: "discover", moment: "Night shifts and a corgi" },
-  { stage: "showcase", moment: "Choosing the route" },
-  { stage: "commit", moment: "The close" },
-  { stage: "commit", moment: "The follow-up text" },
+  { stage: "relationship", moment: "The arrival and framing the visit" },
+  { stage: "need", moment: "Why she's moving" },
+  { stage: "need", moment: "Night shifts and a corgi" },
+  { stage: "recommend", moment: "Recommending the right home" },
+  { stage: "ask", moment: "“I could see myself here”" },
+  { stage: "next", moment: "The next step and the follow-up text" },
 ];
 
 export function Design() {
@@ -68,27 +64,24 @@ export function Design() {
       question="What should associates do differently, and what's the best way to get them there?"
       summary={
         <p>
-          I turned each diagnosis into an observable behavior, organized them into a model associates could carry
-          into a tour, then chose formats to match the problem, not the other way around.
+          I turned each diagnosis into an observable behavior and organized them around the coaching-to-decision sales
+          model, so the tour, the training and the coaching all speak the same language. Then I chose formats to match
+          the problem, not the other way around.
         </p>
       }
     >
-      <SubHead>Performance objectives</SubHead>
-      <p className="mt-2 max-w-prose text-muted">Each one is something a manager can see on a real tour, which is what makes it measurable.</p>
-      <ol className="mt-6 grid gap-3 md:grid-cols-2">
-        {objectives.map((o) => (
-          <li key={o.stage}>
-            <Card className="h-full">
-              <StageChip stage={o.stage}>{o.name}</StageChip>
-              <p className="mt-3 text-[15px] leading-relaxed">{o.behavior}</p>
-            </Card>
-          </li>
-        ))}
-      </ol>
+      <SubHead>Performance objectives, built on the sales model</SubHead>
+      <p className="mt-2 max-w-prose text-muted">
+        Each step is something a manager can see on a real tour, which is what makes it measurable. Select a step to
+        see the objective and what it sounds like.
+      </p>
+      <div className="mt-6">
+        <SalesModel />
+      </div>
 
       <Thinking>
-        I named the stages in the order a tour actually happens. That way the model doubles as the tour itself, and
-        it's the same language in the scenario, the job aid and the manager checklist.
+        Asking isn't a step at the end. It's a habit. When a prospect says “I could see my desk by that window,”
+        that's the moment to ask, not twenty minutes later in the office.
       </Thinking>
 
       <SubHead>Design decisions</SubHead>
@@ -146,8 +139,8 @@ export function Design() {
                 <span className="w-5 text-right text-sm text-muted" style={{ fontVariantNumeric: "tabular-nums" }}>
                   {i + 1}
                 </span>
-                <span className="w-24 shrink-0">
-                  <StageChip stage={s.stage}>{s.stage}</StageChip>
+                <span className="w-28 shrink-0">
+                  <StageChip stage={s.stage}>{stageById[s.stage].short}</StageChip>
                 </span>
                 {s.moment}
               </li>
@@ -155,8 +148,8 @@ export function Design() {
           </ol>
           <p className="mt-5 border-t border-line pt-4 text-sm leading-relaxed text-muted">
             Every decision has one strong response, one that's partly there and one missed moment. The weaker options
-            are things good associates actually say, so the choice feels real. A Connection Meter shows the effect of
-            each choice, and the debrief scores each stage.
+            are things good associates actually say, so the choice feels real. One decision is a buying signal, to practice asking in the middle of the tour. A Connection Meter shows the
+            effect of each choice, and the debrief scores each step of the model.
           </p>
         </Card>
       </div>
