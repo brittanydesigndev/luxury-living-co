@@ -7,8 +7,8 @@ export function SalesModel() {
   const stage = stageById[active];
 
   return (
-    <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,26rem)_1fr]">
-      <SalesCycle active={active} onSelect={setActive} className="mx-auto h-auto w-full max-w-[26rem]" />
+    <div className="grid gap-6">
+      <SalesCycle active={active} onSelect={setActive} className="mx-auto h-auto w-full max-w-[46rem] text-ink" />
 
       <div id="model-panel" aria-live="polite" className="min-w-0 rounded-lg border border-line bg-raised p-6 md:p-8">
         <p className="eyebrow">Performance objective</p>
