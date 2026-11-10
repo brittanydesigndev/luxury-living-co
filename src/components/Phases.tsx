@@ -67,7 +67,7 @@ const path = [
   {
     stage: "Get started",
     count: "1 item",
-    body: "A welcome video and a five-question pre-check that shows each associate where they're strong and where to focus.",
+    body: "A welcome video made in HeyGen and a five-question pre-check that shows each associate where they're strong and where to focus.",
   },
   {
     stage: "Learn the model",

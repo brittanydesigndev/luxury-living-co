@@ -7,7 +7,7 @@ const facts = [
   { label: "The ask", value: "Help Leasing Associates give more engaging, personalized and effective tours" },
   { label: "My role", value: "Designed the learning experience and planned the program to roll it out, run it and measure it" },
   { label: "Timeline", value: "Three days" },
-  { label: "Built with", value: "Lovable (React), a custom design system, Claude for research and drafting" },
+  { label: "Built with", value: "Lovable (React), HeyGen for video, a custom design system, Claude for research and drafting" },
 ];
 
 export function Hero() {
